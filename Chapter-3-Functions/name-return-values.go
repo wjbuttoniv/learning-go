@@ -22,29 +22,43 @@ func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilC
 
 // Output looked really ugly with
 // "You are x in 0 years"
-// second attempt to make Output
+// third attempt to make Output
 // more presentable
 
 func test(age int) {
 	fmt.Println("Age:", age)
 	yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental := yearsUntilEvents(age)
-	if yearsUntilAdult == 0 {
-		fmt.Println("You are an adult")
-	} else {
-		fmt.Println("You are an adult in", yearsUntilAdult, "years")
-	}
-	if yearsUntilDrinking == 0 {
-		fmt.Println("You can drink")
-	} else {
-		fmt.Println("You can drink in", yearsUntilDrinking, "years")
-	}
 	if yearsUntilCarRental == 0 {
-		fmt.Println("You can rent a car")
+		fmt.Println("You are an adult", "\nYou can drink", "\nYou can rent a car")
+	} else if yearsUntilCarRental != 0 && yearsUntilDrinking == 0 {
+		fmt.Println("You are an adult", "\nYou can drink", "\nYou can rent a car in", yearsUntilDrinking, "years")
+	} else if yearsUntilDrinking != 0 && yearsUntilAdult == 0 {
+		fmt.Println("You are an adult", "\nYou can drink in", yearsUntilDrinking, "years", "\nYou can rent a car in", yearsUntilCarRental, "years")
 	} else {
-		fmt.Println("You can rent a car in", yearsUntilCarRental, "years")
+		fmt.Println("You are an adult in", yearsUntilAdult, "years", "\nYou can drink in", yearsUntilDrinking, "years", "\nYou can rent a car in", yearsUntilCarRental, "years")
 	}
-	fmt.Println("=======================================")
 }
+
+//func test(age int) {
+//fmt.Println("Age:", age)
+//yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental := yearsUntilEvents(age)
+//if yearsUntilAdult == 0 {
+//fmt.Println("You are an adult")
+//} else {
+//fmt.Println("You are an adult in", yearsUntilAdult, "years")
+//}
+//if yearsUntilDrinking == 0 {
+//fmt.Println("You can drink")
+//} else {
+//fmt.Println("You can drink in", yearsUntilDrinking, "years")
+//}
+//if yearsUntilCarRental == 0 {
+//fmt.Println("You can rent a car")
+//	} else {
+//		fmt.Println("You can rent a car in", yearsUntilCarRental, "years")
+//	}
+//	fmt.Println("=======================================")
+//}
 
 func main() {
 	test(4)
