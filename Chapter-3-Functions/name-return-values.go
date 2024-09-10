@@ -31,7 +31,7 @@ func test(age int) {
 	if yearsUntilCarRental == 0 {
 		fmt.Println("You are an adult", "\nYou can drink", "\nYou can rent a car")
 	} else if yearsUntilCarRental != 0 && yearsUntilDrinking == 0 {
-		fmt.Println("You are an adult", "\nYou can drink", "\nYou can rent a car in", yearsUntilDrinking, "years")
+		fmt.Println("You are an adult", "\nYou can drink", "\nYou can rent a car in", yearsUntilCarRental, "years")
 	} else if yearsUntilDrinking != 0 && yearsUntilAdult == 0 {
 		fmt.Println("You are an adult", "\nYou can drink in", yearsUntilDrinking, "years", "\nYou can rent a car in", yearsUntilCarRental, "years")
 	} else {
