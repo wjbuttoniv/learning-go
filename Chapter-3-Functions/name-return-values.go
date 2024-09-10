@@ -20,14 +20,29 @@ func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilC
 	return yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental
 }
 
-// dont edit below this line
+// Output looked really ugly with
+// "You are x in 0 years"
+// initial attempt to make Output
+// more presentable
 
 func test(age int) {
 	fmt.Println("Age:", age)
 	yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental := yearsUntilEvents(age)
-	fmt.Println("You are an adult in", yearsUntilAdult, "years")
-	fmt.Println("You can drink in", yearsUntilDrinking, "years")
-	fmt.Println("You can rent a car in", yearsUntilCarRental, "years")
+	if yearsUntilAdult <= 18 {
+		fmt.Println("You are an adult")
+	} else {
+		fmt.Println("You are an adult in", yearsUntilAdult, "years")
+	}
+	if yearsUntilDrinking <= 21 {
+		fmt.Println("You can drink")
+	} else {
+		fmt.Println("You can drink in", yearsUntilDrinking, "years")
+	}
+	if yearsUntilCarRental <= 25 {
+		fmt.Println("You can rent a car")
+	} else {
+		fmt.Println("You can rent a car in", yearsUntilCarRental, "years")
+	}
 	fmt.Println("=======================================")
 }
 
