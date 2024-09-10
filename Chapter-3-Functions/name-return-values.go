@@ -22,7 +22,7 @@ func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilC
 
 // Output looked really ugly with
 // "You are x in 0 years"
-// initial attempt to make Output
+// second attempt to make Output
 // more presentable
 
 func test(age int) {
