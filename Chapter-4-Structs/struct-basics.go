@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 // Complete the below struct
+// neogit test commit
 type messageToSend struct {
 	phoneNumber int
 	message     string
