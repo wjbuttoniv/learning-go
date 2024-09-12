@@ -17,19 +17,21 @@ type user struct {
 	number int
 }
 
-// Complete the below function
-// should only return true if
-// sender and recipient each contain
-// a name and number
-// else return false
-func canSendMessage(mToSend messageToSend) bool {
-	if mToSend.sender.name == "" || mToSend.sender.number == 0 {
+// Code Review Suggested Changes
+// Move Data Validation
+// into its own function
+func isValid(valid messageToSend) bool {
+	if valid.sender.name == "" || valid.sender.number == 0 {
 		return false
 	}
-	if mToSend.recipient.name == "" || mToSend.recipient.number == 0 {
+	if valid.recipient.name == "" || valid.recipient.number == 0 {
 		return false
 	}
 	return true
+}
+
+func canSendMessage(mToSend messageToSend) bool {
+	return isValid(mToSend)
 }
 
 // dont touch below this line
