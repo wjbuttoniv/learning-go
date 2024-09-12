@@ -17,21 +17,14 @@ type user struct {
 	number int
 }
 
-// Code Review Suggested Changes
-// Move Data Validation
-// into its own function
-func isValid(valid messageToSend) bool {
-	if valid.sender.name == "" || valid.sender.number == 0 {
-		return false
-	}
-	if valid.recipient.name == "" || valid.recipient.number == 0 {
-		return false
-	}
-	return true
+// Need to eliminate
+// raw comparisons
+func isValidUser(userValid user) bool {
+	return userValid.name != "" && userValid.number != 0
 }
 
 func canSendMessage(mToSend messageToSend) bool {
-	return isValid(mToSend)
+	return isValidUser(mToSend.sender) && isValidUser(mToSend.recipient)
 }
 
 // dont touch below this line
