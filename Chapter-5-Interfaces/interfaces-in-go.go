@@ -1,16 +1,20 @@
-package chapter5interfaces_1
+package main
 
 import (
 	"fmt"
 	"time"
 )
 
+// complete the below function
+// it should print a message's message
+// get it from the interface method
 func sendMessage(msg message) {
-	// ?
+	fmt.Println(msg.getMessage())
 }
 
+// add getMessage() method as a requirement
 type message interface {
-	// ?
+	getMessage() string
 }
 
 // dont edit below this line
@@ -21,7 +25,7 @@ type birthdayMessage struct {
 }
 
 func (bm birthdayMessage) getMessage() string {
-	return fmt.Sprintf("Hi %s, it is your birthday on $s", bm.recipientName, bm.birthdayTime.Format(time.RFC3339))
+	return fmt.Sprintf("Hi %s, it is your birthday on %s", bm.recipientName, bm.birthdayTime.Format(time.RFC3339))
 }
 
 type sendingReport struct {
@@ -38,14 +42,14 @@ func test(m message) {
 	fmt.Println("=================================")
 }
 
-func chapter5interfaces_1() {
+func main() {
 	test(sendingReport{
 		reportName:    "First Report",
 		numberofSends: 10,
 	})
 	test(birthdayMessage{
 		recipientName: "John Doe",
-		birthdayTime:  time.Date(1994, 03, 21, 0, 0, 0, time.UTC),
+		birthdayTime:  time.Date(1994, 03, 21, 0, 0, 0, 0, time.UTC),
 	})
 	test(sendingReport{
 		reportName:    "First Report",
@@ -53,6 +57,6 @@ func chapter5interfaces_1() {
 	})
 	test(birthdayMessage{
 		recipientName: "Bill Deer ",
-		birthdayTime:  time.Date(1934, 05, 01, 0, 0, 0, time.UTC),
+		birthdayTime:  time.Date(1934, 05, 01, 0, 0, 0, 0, time.UTC),
 	})
 }
