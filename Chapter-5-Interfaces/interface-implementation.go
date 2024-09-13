@@ -15,11 +15,14 @@ type contractor struct {
 	hoursPerYear int
 }
 
+// add missing getSalary() method
 func (c contractor) getName() string {
 	return c.name
 }
 
-// ?
+func (c contractor) getSalary() int {
+	return c.hourlyPay * c.hoursPerYear
+}
 
 // dont touch below this line
 
@@ -35,6 +38,10 @@ func (ft fullTime) getName() string {
 func test(e employee) {
 	fmt.Println(e.getName(), e.getSalary())
 	fmt.Println("====================================")
+}
+
+func (ft fullTime) getSalary() int {
+	return ft.salary
 }
 
 func main() {
