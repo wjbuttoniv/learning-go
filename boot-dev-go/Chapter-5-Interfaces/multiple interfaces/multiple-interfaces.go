@@ -10,13 +10,17 @@ import (
 
 // if the email is not Subscribed, cost is 0.05 per char
 // if it is Subscribed, cost is 0.01 per char
+const (
+	subCost = 0.01
+	stdCost = 0.05
+)
+
 func (e email) cost() float64 {
-	subCost := 0.01
-	stdCost := 0.05
+	eLength := float64(len(e.body))
 	if e.isSubscribed == true {
-		return subCost * float64(len(e.body))
+		return subCost * eLength
 	}
-	return stdCost * float64(len(e.body))
+	return stdCost * eLength
 }
 
 // print method should print emails body text
