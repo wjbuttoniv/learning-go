@@ -4,8 +4,21 @@ import (
 	"fmt"
 )
 
+// Assignment
+// implement getExpenseReport using a type switch
+// if the expense is an email, then
+// it should return the email's toAddress and the cost
+// if sms, return the toPhoneNumber and cost
+// else, return "" 0.0
 func getExpenseReport(e expense) (string, float64) {
-	// ?
+	switch v := e.(type) {
+	case email:
+		return v.toAddress, v.cost()
+	case sms:
+		return v.toPhoneNumber, v.cost()
+	default:
+		return "", 0
+	}
 }
 
 // dont touch below this line
