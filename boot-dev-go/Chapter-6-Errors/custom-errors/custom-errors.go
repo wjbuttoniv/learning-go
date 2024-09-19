@@ -15,13 +15,15 @@ type divideError struct {
 	dividend float64
 }
 
-// ?
+func (d divideError) Error() string {
+	return fmt.Sprintf("cannot divide %v by zero", d.dividend)
+}
 
 // don't edit below this line
 
 func divide(dividend, divisor float64) (float64, error) {
 	if divisor == 0 {
-		// We convert the `divideError` struct to an `error` type by returning it
+		// We convest the `divideError` struct to an `error` type by returning it
 		// as an error. As an error type, when it's printed its default value
 		// will be the result of the Error() method
 		return 0, divideError{dividend: dividend}
