@@ -8,5 +8,5 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	// use user here
+	// use user here...
 }
