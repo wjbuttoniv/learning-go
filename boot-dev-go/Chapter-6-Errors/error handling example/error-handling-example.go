@@ -8,5 +8,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	user, err := getUserProfile(user.ID)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	// use user here...
 }
