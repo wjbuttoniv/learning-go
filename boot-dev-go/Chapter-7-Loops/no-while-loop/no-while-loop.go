@@ -4,10 +4,16 @@ import (
 	"fmt"
 )
 
+// Assignment
+// write a function that can calculate how many messages we can send in a given batch
+// given a costMultiplier and a maxCostInPennies
+// There is an infinite loop in the code
+// add a condition to fix the bug.
+// loop should exit before incrementing maxMessagesToSend if the cost of the next message would go over the max cost
 func getMaxMessagesToSend(costMultiplier float64, maxCostInPennies int) int {
 	actualCostInPennies := 1.0
 	maxMessagesToSend := 0
-	for {
+	for actualCostInPennies <= float64(maxCostInPennies) {
 		maxMessagesToSend++
 		actualCostInPennies *= costMultiplier
 	}
